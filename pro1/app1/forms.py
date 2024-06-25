@@ -1,0 +1,15 @@
+from django import forms
+from .models import Person
+
+class PersonForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = '__all__'
+        widgets = {
+            'first_name' : forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name' : forms.TextInput(attrs={'class': 'form-control'}),
+            'gender' : forms.Select(attrs={'class': 'form-select'}),
+            'profile_picture' : forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'Address' : forms.Textarea(attrs={'class': 'form-control'}),
+            'City' : forms.TextInput(attrs={'class': 'form-control'}),
+        }

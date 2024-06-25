@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Show</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Person Details</h1>
+    <table class="table table-warning table-striped-columns">
+        <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Profile Picture</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for per in obj %}
+            <tr>
+                <td>{{per.first_name}}</td>
+                <td>{{per.last_name}}</td>
+                <td>{{per.gender}}</td>
+                <td>{{per.Address}}</td>
+                <td>{{per.City}}</td>
+                <td>
+                    <img src="{{per.profile_picture.url}}" height="150px" width="150px">
+                </td>
+                <td>
+                    <a href="/a1/uv/{{per.id}}/"><button class="btn btn-success">Update</button></a>
+                    <a href="/a1/dv/{{per.id}}/"><button class="btn btn-warning">Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
